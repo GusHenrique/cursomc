@@ -2,10 +2,25 @@ package com.gustavo.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/*
+	The classes presented in this directory are the Models.
+	They are represented as Entities.
+ */
+
+@Entity
 public class Categoria implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	//Creation of ID (PrimaryKey) Attribute in DataBase
+	//Defining type of ID (PrimaryKey)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	

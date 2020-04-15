@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gustavo.cursomc.domain.Categoria;
 
+/*
+ The classes in this directory are Controllers.
+ They are responsible to make an interaction between Models(Entities)
+ and Views(Resources).
+ */
+
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResources {
-
+	
+	//Method HTTP
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Categoria> listar() {
 		
