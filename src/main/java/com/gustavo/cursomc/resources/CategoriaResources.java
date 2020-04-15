@@ -1,13 +1,14 @@
 package com.gustavo.cursomc.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gustavo.cursomc.domain.Categoria;
+import com.gustavo.cursomc.services.CategoriaService;
 
 /*
  The classes in this directory are Controllers.
@@ -19,20 +20,22 @@ import com.gustavo.cursomc.domain.Categoria;
 @RequestMapping(value="/categorias")
 public class CategoriaResources {
 	
+	//@Autowired instância automaticamente o objeto criado
+	@Autowired
+	private CategoriaService service;
+	
+	
 	//Method HTTP
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Categoria> listar() {
+	@RequestMapping(value="{id}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id) {
+	//@PathVariable passa id de @RequestMapping como atributo para função "find"
+	//o tipo ResponseEntity encapsula diversas informações HTTP para serviços REST	
 		
-		//Instantiation of two Category objects
-		Categoria cat1 = new Categoria(1,"Informática");
-		Categoria cat2 = new Categoria(2,"Escritório");
+		//Através da classe services, encontrar objeto pelo seu id
+		Categoria obj = service.buscar(id);
 		
-		//Creation of an ArrayList to store the two objects
-		List<Categoria> lista = new ArrayList<>();
-		lista.add(cat1);
-		lista.add(cat2);
-		
-		//Return the ArrayList created
-		return lista;
+		//Retornando ResponseEntity
+		return ResponseEntity.ok().body(obj);
+
 	}
 }
