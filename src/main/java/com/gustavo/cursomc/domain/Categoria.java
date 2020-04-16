@@ -27,7 +27,11 @@ public class Categoria implements Serializable{
 	private Integer id;
 	private String nome;
 	
+<<<<<<< HEAD
 	//Lista de Produtos e Mapeamento de Join Table (Associação ManyToMany)
+=======
+	//Lista de Produtos e Mapeamento de Join Table
+>>>>>>> 3043c90f6144ad3c97ae7faaf5497aae1efeb91e
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
