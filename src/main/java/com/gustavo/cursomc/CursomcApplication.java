@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.gustavo.cursomc.domain.Categoria;
 import com.gustavo.cursomc.repositories.CategoriaRepository;
 
+//ComandLineRunner implementa método necessário para instanciação de Objetos
+
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
 
@@ -21,11 +23,13 @@ public class CursomcApplication implements CommandLineRunner{
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 	
+	//Método herdade da interface CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception {
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
 		
+		//Subindo objetos para Banco de Dados 
 		categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
 		
 	}
