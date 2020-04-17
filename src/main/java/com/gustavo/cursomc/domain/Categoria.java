@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /*
 	The classes presented in this directory are the Models.
 	They are represented as Entities.
@@ -27,11 +29,10 @@ public class Categoria implements Serializable{
 	private Integer id;
 	private String nome;
 	
-<<<<<<< HEAD
+
 	//Lista de Produtos e Mapeamento de Join Table (Associação ManyToMany)
-=======
-	//Lista de Produtos e Mapeamento de Join Table
->>>>>>> 3043c90f6144ad3c97ae7faaf5497aae1efeb91e
+	//@JsonManagedReference para a classe na qual os objetos associados serão mostrados
+	@JsonManagedReference
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	

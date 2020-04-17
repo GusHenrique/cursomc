@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /*
 	The classes presented in this directory are the Models.
 	They are represented as Entities.
@@ -30,6 +32,8 @@ public class Produto implements Serializable{
 	private Double preco;
 	
 	//Lista de Categorias e Mapeando JoinTable (Associação ManyToMany)
+	//@JsonBackReference para a classe na qual os objetos associados serão omitidos
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA",
 			joinColumns	= @JoinColumn(name = "produto_id"),

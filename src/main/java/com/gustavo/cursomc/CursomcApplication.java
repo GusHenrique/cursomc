@@ -35,36 +35,22 @@ public class CursomcApplication implements CommandLineRunner{
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
 		
-<<<<<<< HEAD
+
 		//Criação de Produtos
-=======
->>>>>>> 3043c90f6144ad3c97ae7faaf5497aae1efeb91e
 		Produto p1 = new Produto(null, "Computador", 2000.00);
 		Produto p2 = new Produto(null, "Impressora", 800.00);
 		Produto p3 = new Produto(null, "Mouse", 80.00);
 		
-<<<<<<< HEAD
 		//Adicionando Produtos às suas respectivas Categorias (Associação)
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
 		cat2.getProdutos().addAll(Arrays.asList(p2));
 		
-		//Adicionando Categoris aos seus respectivos Produtos (Associação)
-=======
-		//Adicionando Produtos às suas respectivas Categorias
-		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
-		cat2.getProdutos().addAll(Arrays.asList(p2));
-		
-		//Adicionando Categoris aos seus respectivos Produtos
->>>>>>> 3043c90f6144ad3c97ae7faaf5497aae1efeb91e
+		//Adicionando Categorias aos seus respectivos Produtos (Associação)
 		p1.getCategorias().addAll(Arrays.asList(cat1));
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		p3.getCategorias().addAll(Arrays.asList(cat1));
 		
-<<<<<<< HEAD
 		//Subindo objetos para Banco de Dados através de suas Repositories
-=======
-		//Subindo objetos para Banco de Dados 
->>>>>>> 3043c90f6144ad3c97ae7faaf5497aae1efeb91e
 		categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
 		produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
 	}
